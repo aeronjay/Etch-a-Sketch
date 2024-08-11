@@ -9,7 +9,21 @@
 <body>
     <div class="main-container">
         <div class="grid-options">
-            
+            <div class="grid-options-container">
+                
+                <h1>Current Color</h1>
+                <div class="color-picker"></div>
+                <button class="rainbow button">Rainbow</button>
+                <button class="fade button">Fade Color</button>
+                <button class="eraser button">Eraser</button>
+                <button class="clear button">Clear Canvas</button>
+                <div class="grid-size-container">
+                    <p style="text-align: center;">20x20</p>
+                    <label for="grid-size">Grid Size: </label>
+                    <input type="range" id="grid-size" name="grid-size" min="1" max="100" value="20">
+                </div>
+                
+            </div>
         </div>
         <div class="grid-container">
             <div class="grid">
