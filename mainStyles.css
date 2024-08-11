@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    
+}
+.grid-options{
+    border: 1px solid red;
+    flex: 1 1 0;
+
+}
+.grid-container{
+    border: 1px solid red;
+    flex: 2 1 0;
+}
