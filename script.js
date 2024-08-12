@@ -14,7 +14,25 @@ function createBlock(gridSize){
     let blockSize = (GRID_WIDTH_HEIGHT / gridSize) - 1;
     let block = document.createElement("div");
     block.style.cssText = `flex: 1 0 ${blockSize + "px"}; background-color: black; height: auto;`;
-    
     return block;
 }
-load(20);
+
+let isDrawing = false;
+
+grid.addEventListener("mousedown", (e) =>{
+    if(e.buttons === 1){
+        isDrawing = true;
+        e.preventDefault();
+        e.target.style.backgroundColor = "white";
+    }
+})
+grid.addEventListener("mouseover", e => {
+    if(isDrawing && e.buttons === 1){
+        e.target.style.backgroundColor = "white";
+    }
+})
+grid.addEventListener("mouseup", e => {
+    isDrawing = false;
+})
+
+load(10);
