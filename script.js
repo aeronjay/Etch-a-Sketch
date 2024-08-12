@@ -6,6 +6,11 @@ let gridSizeText = document.querySelector(".grid-size-text");
 let colorPicker = document.querySelector(".color-picker");
 let clearButton = document.querySelector(".clear");
 let currentColor = "#0e1111";
+let randomButton = document.querySelector(".random");
+let fadeButton = document.querySelector(".fade");
+
+let randomToggle = false;
+let fadeToggle = false;
 
 function load(gridSize){
     grid.textContent = ""; // clear grid
@@ -47,11 +52,8 @@ colorPicker.addEventListener("input", () => {
     currentColor = colorPicker.value;
 })
 
-clearButton.addEventListener("click", () => clearCanvas(slider.value));
+clearButton.addEventListener("click", () => load(slider.value));
 
-function clearCanvas(sliderVal){
-    console.log(sliderVal);
-    load(sliderVal);
-}
+
 
 load(20);
