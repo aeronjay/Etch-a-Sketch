@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 .main-container{
     width: 100vw;
@@ -63,7 +64,7 @@ input[type="color"]::-webkit-color-swatch {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 
     display: flex;
-    flex-flow: wrap row;
+    flex-flow: wrap column;
 }
 .grid-size-text{
     text-align: center;

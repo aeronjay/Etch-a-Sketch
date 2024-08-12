@@ -14,14 +14,23 @@ let fadeToggle = false;
 
 function load(gridSize){
     grid.textContent = ""; // clear grid
-    for(let i = 0, j = gridSize * gridSize; i < j; i++){
-        grid.appendChild(createBlock(gridSize));
+    // for(let i = 0, j = gridSize * gridSize; i < j; i++){
+    //     grid.appendChild(createBlock(gridSize));
+    // }
+    for(let i = 0; i < gridSize; i++){
+        let row = document.createElement("div");
+        row.style.cssText = "flex: 1; display: flex;"
+        for(let j = 0; j < gridSize; j++){
+            row.appendChild(createBlock(gridSize));
+        }
+        grid.appendChild(row);
+        console.log(row);
     }
 }
 function createBlock(gridSize){
-    let blockSize = (GRID_WIDTH_HEIGHT / gridSize) - 1;
+    let blockSize = (GRID_WIDTH_HEIGHT / gridSize);
     let block = document.createElement("div");
-    block.style.cssText = `flex: 1 0 ${blockSize + "px"}; background-color: white; height: auto;`;
+    block.style.cssText = `width: ${blockSize + "%"}; background-color: white; height: auto;`;
     return block;
 }
 
