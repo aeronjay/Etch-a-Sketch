@@ -3,11 +3,8 @@ const GRID_WIDTH_HEIGHT = 700;
 let grid = document.querySelector(".grid");
 
 function load(gridSize){
-    
-    for(let i = 0; i < gridSize; i++){
-        for(let j = 0; j < gridSize; j++){
-            grid.appendChild(createBlock(gridSize));
-        }
+    for(let i = 0, j = gridSize * gridSize; i < j; i++){
+        grid.appendChild(createBlock(gridSize));
     }
 }
 function createBlock(gridSize){
@@ -35,4 +32,4 @@ grid.addEventListener("mouseup", e => {
     isDrawing = false;
 })
 
-load(10);
+load(20);
