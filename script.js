@@ -54,6 +54,11 @@ colorPicker.addEventListener("input", () => {
 
 clearButton.addEventListener("click", () => load(slider.value));
 
-
+randomButton.addEventListener("click", () => {
+    randomToggle = !randomToggle;
+})
+fadeButton.addEventListener("click", () => {
+    fadeToggle = !fadeToggle;
+})
 
 load(20);
