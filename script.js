@@ -8,9 +8,11 @@ let clearButton = document.querySelector(".clear");
 let currentColor = "#0e1111";
 let randomButton = document.querySelector(".random");
 let fadeButton = document.querySelector(".fade");
+let eraserButton = document.querySelector(".eraser");
 
 let randomToggle = false;
 let fadeToggle = false;
+let eraserToggle = false;
 
 function load(gridSize){
     grid.textContent = ""; // clear grid
@@ -24,7 +26,6 @@ function load(gridSize){
             row.appendChild(createBlock(gridSize));
         }
         grid.appendChild(row);
-        console.log(row);
     }
 }
 function createBlock(gridSize){
@@ -68,6 +69,9 @@ randomButton.addEventListener("click", () => {
 })
 fadeButton.addEventListener("click", () => {
     fadeToggle = !fadeToggle;
+})
+eraserButton.addEventListener("click", () => {
+    eraserToggle = !eraserToggle;
 })
 
 load(20);
