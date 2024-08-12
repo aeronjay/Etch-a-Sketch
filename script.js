@@ -17,7 +17,7 @@ function createBlock(gridSize){
 let isDrawing = false;
 
 grid.addEventListener("mousedown", (e) =>{
-    if(e.buttons === 1){
+    if(e.buttons === 1){ // will only draw if its a left click
         isDrawing = true;
         e.preventDefault();
         e.target.style.backgroundColor = "white";
