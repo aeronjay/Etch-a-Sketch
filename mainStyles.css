@@ -34,19 +34,36 @@
     width: 100px;
     height: 100px;
     border-radius: 100%;
-    background-color: black;
     flex-shrink: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
 .button{
     padding: 15px;
     width: 150px;
 }
 .grid{
-    border: 1px solid black;
     width: 700px;
     height: 700px;
     margin: auto;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 
     display: flex;
     flex-flow: wrap row;
+}
+.grid-size-text{
+    text-align: center;
 }

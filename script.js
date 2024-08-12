@@ -1,8 +1,13 @@
 const GRID_WIDTH_HEIGHT = 700;
 
 let grid = document.querySelector(".grid");
+let slider = document.querySelector("#grid-size");
+let gridSizeText = document.querySelector(".grid-size-text");
+let colorPicker = document.querySelector(".color-picker");
+let currentColor = "#0e1111";
 
 function load(gridSize){
+    grid.textContent = ""; // clear grid
     for(let i = 0, j = gridSize * gridSize; i < j; i++){
         grid.appendChild(createBlock(gridSize));
     }
@@ -10,7 +15,7 @@ function load(gridSize){
 function createBlock(gridSize){
     let blockSize = (GRID_WIDTH_HEIGHT / gridSize) - 1;
     let block = document.createElement("div");
-    block.style.cssText = `flex: 1 0 ${blockSize + "px"}; background-color: black; height: auto;`;
+    block.style.cssText = `flex: 1 0 ${blockSize + "px"}; background-color: white; height: auto;`;
     return block;
 }
 
@@ -20,16 +25,26 @@ grid.addEventListener("mousedown", (e) =>{
     if(e.buttons === 1){ // will only draw if its a left click
         isDrawing = true;
         e.preventDefault();
-        e.target.style.backgroundColor = "white";
+        e.target.style.backgroundColor = currentColor;
     }
 })
 grid.addEventListener("mouseover", e => {
     if(isDrawing && e.buttons === 1){
-        e.target.style.backgroundColor = "white";
+        e.target.style.backgroundColor = currentColor;
     }
 })
 grid.addEventListener("mouseup", e => {
     isDrawing = false;
 })
+
+slider.addEventListener("input", () => {
+    gridSizeText.textContent = slider.value + "x" + slider.value;
+    load(slider.value);
+})
+
+colorPicker.addEventListener("input", () => {
+    currentColor = colorPicker.value;
+})
+
 
 load(20);
