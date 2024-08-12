@@ -4,6 +4,7 @@ let grid = document.querySelector(".grid");
 let slider = document.querySelector("#grid-size");
 let gridSizeText = document.querySelector(".grid-size-text");
 let colorPicker = document.querySelector(".color-picker");
+let clearButton = document.querySelector(".clear");
 let currentColor = "#0e1111";
 
 function load(gridSize){
@@ -46,5 +47,11 @@ colorPicker.addEventListener("input", () => {
     currentColor = colorPicker.value;
 })
 
+clearButton.addEventListener("click", () => clearCanvas(slider.value));
+
+function clearCanvas(sliderVal){
+    console.log(sliderVal);
+    load(sliderVal);
+}
 
 load(20);
