@@ -4,9 +4,22 @@
     box-sizing: border-box;
 
 }
-.main-container{
-    width: 100vw;
+body{
+    display: flex;
+    flex-direction: column;
+
     height: 100vh;
+}
+.footer{
+    width: auto;
+    height: 5%;
+    align-content: center;
+    text-align: center;
+    background-color: rgb(187, 187, 187);
+}
+.main-container{
+    height: auto;
+    flex: 1;
     overflow: hidden;
     background: rgb(227, 227, 227);
 
