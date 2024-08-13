@@ -9,7 +9,9 @@ let currentColor = "#0e1111";
 let randomButton = document.querySelector(".random");
 let fadeButton = document.querySelector(".fade");
 let eraserButton = document.querySelector(".eraser");
+let colorModeButton = document.querySelector(".colorMode");
 
+let colorModeToggle = true;
 let randomToggle = false;
 let fadeToggle = false;
 let eraserToggle = false;
@@ -38,15 +40,21 @@ function createBlock(gridSize){
 let isDrawing = false;
 
 grid.addEventListener("mousedown", (e) =>{
-    if(e.buttons === 1){ // will only draw if its a left click
+    if(e.buttons === 1 && colorModeToggle){ // will only draw if its a left click
         isDrawing = true;
         e.preventDefault();
         e.target.style.backgroundColor = currentColor;
+    }else if(e.buttons === 1 && eraserToggle){
+        isDrawing = true;
+        e.preventDefault();
+        e.target.style.backgroundColor = "white";
     }
 })
 grid.addEventListener("mouseover", e => {
-    if(isDrawing && e.buttons === 1){
+    if(isDrawing && e.buttons === 1 && colorModeToggle){
         e.target.style.backgroundColor = currentColor;
+    }else if(isDrawing && e.buttons === 1 && eraserToggle){
+        e.target.style.backgroundColor = "white";
     }
 })
 grid.addEventListener("mouseup", e => {
@@ -65,13 +73,36 @@ colorPicker.addEventListener("input", () => {
 clearButton.addEventListener("click", () => load(slider.value));
 
 randomButton.addEventListener("click", () => {
-    randomToggle = !randomToggle;
+    randomButton.style.backgroundColor = "lime";
+    eraserButton.style.backgroundColor = "#eee";
+    colorModeButton.style.backgroundColor = "#eee";
+
+    randomToggle = true;
+    eraserToggle = false;
+    colorModeToggle = false;
+})
+
+eraserButton.addEventListener("click", () => {
+    eraserButton.style.backgroundColor = "lime";
+    colorModeButton.style.backgroundColor = "#eee";
+    randomButton.style.backgroundColor = "#eee";
+
+    
+    eraserToggle = true;
+    colorModeToggle = false;
+    randomToggle = false;
+})
+colorModeButton.addEventListener("click", () => {
+    colorModeButton.style.backgroundColor = "lime";
+    randomButton.style.backgroundColor = "#eee";
+    eraserButton.style.backgroundColor = "#eee";
+
+    colorModeToggle = true;
+    eraserToggle = false;
+    randomToggle = false;
 })
 fadeButton.addEventListener("click", () => {
     fadeToggle = !fadeToggle;
-})
-eraserButton.addEventListener("click", () => {
-    eraserToggle = !eraserToggle;
 })
 
 load(20);
