@@ -46,6 +46,11 @@ grid.addEventListener("mousedown", (e) =>{
         isDrawing = true;
         e.preventDefault();
         e.target.style.backgroundColor = "white";
+    }else if(e.buttons === 1 && randomToggle){
+        isDrawing = true;
+        e.preventDefault();
+        e.target.style.backgroundColor = randomRGB();
+        console.log(randomRGB());
     }
 })
 grid.addEventListener("mouseover", e => {
@@ -53,6 +58,8 @@ grid.addEventListener("mouseover", e => {
         e.target.style.backgroundColor = currentColor;
     }else if(isDrawing && e.buttons === 1 && eraserToggle){
         e.target.style.backgroundColor = "white";
+    }else if(e.buttons === 1 && randomToggle){
+        e.target.style.backgroundColor = randomRGB();
     }
 })
 grid.addEventListener("mouseup", e => {
@@ -99,6 +106,13 @@ colorModeButton.addEventListener("click", () => {
     eraserToggle = false;
     randomToggle = false;
 })
+function randomRGB(){
+    let r = Math.floor((Math.random() * 255));
+    let g = Math.floor((Math.random() * 255));
+    let b = Math.floor((Math.random() * 255));
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
+colorModeButton.click();
 
 load(20);
