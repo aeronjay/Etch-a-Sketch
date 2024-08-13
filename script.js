@@ -7,13 +7,11 @@ let colorPicker = document.querySelector(".color-picker");
 let clearButton = document.querySelector(".clear");
 let currentColor = "#0e1111";
 let randomButton = document.querySelector(".random");
-let fadeButton = document.querySelector(".fade");
 let eraserButton = document.querySelector(".eraser");
 let colorModeButton = document.querySelector(".colorMode");
 
 let colorModeToggle = true;
 let randomToggle = false;
-let fadeToggle = false;
 let eraserToggle = false;
 
 function load(gridSize){
@@ -101,8 +99,6 @@ colorModeButton.addEventListener("click", () => {
     eraserToggle = false;
     randomToggle = false;
 })
-fadeButton.addEventListener("click", () => {
-    fadeToggle = !fadeToggle;
-})
+
 
 load(20);
